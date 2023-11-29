@@ -16,7 +16,7 @@
                 <ul>
                     <li><a href="<?= route_path ?>Home/index">Home</a></li>
                     <li><a href="<?= route_path ?>Note/index">Make task</a></li>
-                    <li><a href="<?= route_path ?>Note/noteList">Mange your task</a></li>
+                    <li><a href="<?= route_path ?>Note/noteList">Manage your task</a></li>
                     <li><a href="">Show all</a></li>
                 </ul>
             </nav>

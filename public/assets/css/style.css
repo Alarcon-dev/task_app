@@ -95,7 +95,7 @@
 
  
 }
-.main a{
+.main .one{
     display: block;
     position: relative;
     z-index: 1;
@@ -106,15 +106,15 @@
     cursor: pointer;
     letter-spacing: 2px;
     font-weight: bolder;
+    text-decoration: none;
+    color: rebeccapurple;
 }
 
-.main a:hover{
+.main .one:hover{
     color: #444;
 }
 
-.main a{
-    text-decoration: none;
-}
+
 
 .main .make-note{
     width: 95%;
@@ -182,6 +182,12 @@
     line-height: 459px;
 }
 
+.buttons{
+    width: 70%;
+    height: 50px;
+    margin-left:  20px;
+}
+
 table{
     text-align: center;
     width: 85%;
@@ -192,31 +198,43 @@ table{
 }
 
 table td{
-    padding: 0px;
+    padding: 2px;
     border-top: 1px solid #ccc;
 }
 
 .button1{
     background-color: green;
-    padding: 10px;
-    width: 35%;
-    height: 40px;
+    display: block;
+    float: right;
+   
+    line-height: 29px;
+    padding: 5px;
+    height: 30px;
+    width: 25%;
+    height: 30px;
     color: azure;
     text-decoration: none;
     margin-right: 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border-radius: 10px;
+   
 }
 
 .button2{
     background-color: red;
-    padding: 10px;
+    display: block;
+    float: right;
+    margin-right: 10px;
+    padding: 5px;
+    line-height: 29px;
+    height: 30px;
     width: 25%;
-    height: 40px;
+    height: 30px;
     color: azure;
     text-decoration: none;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border-radius: 10px;
+  
 }
 
 .footer{

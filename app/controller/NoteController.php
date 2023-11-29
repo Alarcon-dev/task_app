@@ -8,10 +8,8 @@ class NoteController
     }
 
     public function saveNote(){
-
         $title = isset($_POST['title']) ? $_POST['title'] : "";
         $description = isset($_POST['description']) ? $_POST['description'] : "";
-
         try {
             if(!empty($title) && !empty($description)){
                 $note = new NoteModel;

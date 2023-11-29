@@ -1,5 +1,5 @@
 <div class="main noteList">
-    <?php if (isset($notes) && $notes->num_rows):?>
+    <?php if (isset($notes) && $notes->num_rows) : ?>
         <table>
             <tr>
                 <th>Id</th>
@@ -13,8 +13,11 @@
                     <td><?= $not->title ?></td>
                     <td><?= $not->description ?></td>
                     <td>
-                        <a class="button1" href="<?= route_path ?>Note/updateNotes&id=<?=$not->id?>">Editar</a>
-                        <a class="button2" href="<?= route_path ?>Note/deleteNote&id=<?= $not->id ?>">Eliminar</a>
+                        <div class="buttons">
+                            <a class="button1" href="<?= route_path ?>Note/updateNotes&id=<?= $not->id ?>">Editar</a>
+                            <a class="button2" href="<?= route_path ?>Note/deleteNote&id=<?= $not->id ?>">Eliminar</a>
+                        </div>
+
                     </td>
                 </tr>
             <?php endwhile; ?>
