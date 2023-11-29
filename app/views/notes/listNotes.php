@@ -1,5 +1,5 @@
-
-    <?php if (isset($notes) && is_object($notes)) : ?>
+<div class="main noteList">
+    <?php if (isset($notes) && $notes->num_rows):?>
         <table>
             <tr>
                 <th>Id</th>
@@ -10,15 +10,16 @@
             <?php while ($not = $notes->fetch_object()) : ?>
                 <tr>
                     <td><?= $not->id ?></td>
-                    <td><?= $not->title?></td>
-                    <td><?= $not->description?></td>
+                    <td><?= $not->title ?></td>
+                    <td><?= $not->description ?></td>
                     <td>
-                        <a href="">Editar</a>
-                        <a href="">Eliminar</a>
+                        <a class="button1" href="<?= route_path ?>Note/updateNotes&id=<?=$not->id?>">Editar</a>
+                        <a class="button2" href="<?= route_path ?>Note/deleteNote&id=<?= $not->id ?>">Eliminar</a>
                     </td>
                 </tr>
             <?php endwhile; ?>
         </table>
-    <?php else: ?>
+    <?php else : ?>
         <h1>You don't have notes</h1>
     <?php endif; ?>
+</div>

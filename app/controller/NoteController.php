@@ -17,11 +17,21 @@ class NoteController
                 $note = new NoteModel;
                 $note->setTitle($title);
                 $note->setDescription($description);
-                $save = $note->saveNote();
-                require_once __DIR__."/../views/home/home.php";
-
+                if(isset($_GET['id'])){
+                    $id = $_GET['id'];
+                    $note->setId($id);
+                    if($note->updateNote()){
+                        $note = $note->updateNote();
+                        require_once __DIR__ . "/../views/home/home.php";
+                    }else{
+                         throw new Exception("Error: update failed");
+                    }
+                }else{
+                    $save = $note->saveNote();
+                    require_once __DIR__ . "/../views/home/home.php";
+                }
             }else{
-                throw new Exception("Error: Los datos no se han guardado");
+                throw new Exception("Error: save failed");
             }
         } catch (Exception $e) {
             print $e->getMessage();
@@ -34,5 +44,38 @@ class NoteController
 
         require_once __DIR__ . "/../views/notes/listNotes.php";
 
+    }
+
+    public function deleteNote(){
+        try{
+            if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $note = new NoteModel;
+            $note->setId($id);
+            $note->deletNote();
+            require_once __DIR__."/../views/notes/listNotes.php";
+            }else{
+                throw new Exception("Error: delete failed");
+            }
+        }catch(Exception $e){
+           $e->getMessage();
+        }
+    }
+
+    public function updateNotes(){
+        try{
+            if($_GET['id']){
+                $id = $_GET['id'];
+                $note = new NoteModel;
+                $note->setId($id);
+                $note = $note->getOne();
+                require_once __DIR__."/../views/notes/makeNote.php";
+            }else{
+                throw new Exception("Error: update failed");
+            }
+
+        }catch(Exception $e){
+            print $e->getMessage();
+        }
     }
 }
